@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mount and blade 2 bannerlord - Banner converter</title>
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+      canvas {
+        image-rendering: pixelated;
+        height: 400px;
+      }
+      .color {
+        width: 20px;
+        height: 20px;
+        float: left;
+      }
+      textarea {
+        width: 100%;
+      }
+
+      #colors {
+        display: block;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Mount and blade 2 bannerlord - Banner converter</h1>
+    <p>This tool will convert a picture (mostly just pixel art) into a mount and blade banner.</p>
+    <h2>Select image to convert</h2>
+    <input type="file" onchange="onUpload()" name="" id="upload"><br>
+
+    <canvas id="canvas"></canvas>
+
+    <br><br>
+
+    
+    <div id="afterSelection" style="display: none;">
+      <h2>Adjust these values until the image looks good.</h2>
+      <label for="">Scale</label>
+      <input type="number" name="" min="14" max="70" step="1" id="range"><br>
+      <label for="">Offset X</label>
+      <input type="number" name="" min="-100" max="100" step="1" id="offsetX" value="0"><br>
+      <label for="">Offset Y</label>
+      <input type="number" name="" min="-100" max="100" step="1" id="offsetY" value="0"><br>
+      <label for="">Remove white background from source image</label>
+      <input type="checkbox" name="" id="removeWhiteBackground"><br>
+      <br>
+      Background color
+      <div id="colors"></div>
+
+      <h2>Apply banner</h2>
+
+      <ol>
+        <li>Copy this code</li>
+        <li>In game, press B to open the banner editor</li>
+        <li>Press Ctrl+V to paste this code in</li>
+      </ol>
+      <textarea name="" id="out" cols="30" rows="10"></textarea>
+
+      <p>Note: Please save your game before doing this as it is possible for the game to crash if the code is too big.</p>
+    </div>
+
+    <script src="convert.js"></script>
+  </body>
+</html>
